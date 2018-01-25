@@ -1,17 +1,15 @@
 {
     "name": "planarity.rschroll",
-    "description": "description of planarity",
+    "description": "Rearrange the vertices so that no two edges intersect",
     "architecture": "all",
-    "title": "planarity",
+    "title": "Planarity",
     "hooks": {
         "planarity": {
             "apparmor": "planarity.apparmor",
             "desktop":  "planarity.desktop"
         }
     },
-    "version": "0.1",
+    "version": "0.2.1",
     "maintainer": "Michele Castellazzi <miguel2000@livecom.it>",
     "framework" : "ubuntu-sdk-15.04"
 }
-
-
