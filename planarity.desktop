@@ -1,8 +1,7 @@
 [Desktop Entry]
-Name=planarity
+Name=Planarity
 Exec=qmlscene $@ ui/Main.qml
 Icon=planarity.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-

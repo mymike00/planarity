@@ -37,6 +37,7 @@ Text {
           "</p><p>" +
           /*/ "&copy;" is copyright symbol. /*/
           i18n.tr("This implentation &copy; 2015 by Robert Schroll and released under the GPL.") + "</p>"
-    
+          i18n.tr("Now maintained &copy; 2018 by Michele Castellazzi.") + "</p>"
+
     onLinkActivated: Qt.openUrlExternally(link)
 }
