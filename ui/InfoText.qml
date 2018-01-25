@@ -4,8 +4,8 @@
  * the GPL. See the file LICENSE for full details.
  */
 
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 Text {
     id: infoText
@@ -36,7 +36,7 @@ Text {
           i18n.tr("Based on gPlanarity by %1.").arg("<a href='http://web.mit.edu/xiphmont/Public/gPlanarity.html'>Monty</a>") +
           "</p><p>" +
           /*/ "&copy;" is copyright symbol. /*/
-          i18n.tr("This implentation &copy; 2015 by Robert Schroll and released under the GPL.") + "</p>"
+          i18n.tr("This implentation &copy; 2015 by Robert Schroll and released under the GPL.") + "</p><p>" +
           i18n.tr("Now maintained &copy; 2018 by Michele Castellazzi.") + "</p>"
 
     onLinkActivated: Qt.openUrlExternally(link)

@@ -4,16 +4,16 @@
  * the GPL. See the file LICENSE for full details.
  */
 
-import QtQuick 2.0
-import Ubuntu.Components 1.1
+import QtQuick 2.4
+import Ubuntu.Components 1.3
 
 
 Rectangle {
     id: edge
-    
+
     property var v1
     property var v2
-    
+
     width: Math.sqrt((v1.x - v2.x)*(v1.x - v2.x) + (v1.y - v2.y)*(v1.y - v2.y))
     height: units.dp(2) / board.scale
     x: v1.x

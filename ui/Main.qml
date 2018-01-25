@@ -4,10 +4,11 @@
  * the GPL. See the file LICENSE for full details.
  */
 
-import QtQuick 2.0
+import QtQuick 2.4
 import QtGraphicalEffects 1.0
-import Ubuntu.Components 1.1
-import Ubuntu.Components.Pickers 1.0
+import Ubuntu.Components 1.3
+import Ubuntu.Components 1.1 as UCold
+import Ubuntu.Components.Pickers 1.3
 
 import "database.js" as Database
 
@@ -29,13 +30,16 @@ MainView {
     //automaticOrientation: true
 
     // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false
+   //  useDeprecatedToolbar: false
 
     width: units.gu(100)
     height: units.gu(75)
 
     Page {
         id: mainPage
+        header: PageHeader {
+           title: "Planarity"
+        }
 
         property int headerHeight: units.gu(8)
 
@@ -414,4 +418,3 @@ MainView {
         }
     }
 }
-
