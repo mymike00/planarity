@@ -17,7 +17,7 @@ based on a concept by Mary Radcliffe.
 Some design features were borrowed from gPlanarity, written by
 [Monty][2].
 
-This version is copyright 2015 by Robert Schroll and released under the
+This version is copyright 2015 by Robert Schroll and 2018 by Michele Castellazzi and released under the
 GPL.
 
 [1]: http://planarity.net/
