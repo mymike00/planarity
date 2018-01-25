@@ -39,6 +39,7 @@ MainView {
         id: mainPage
         header: PageHeader {
            title: "Planarity"
+           exposed: false
         }
 
         property int headerHeight: units.gu(8)

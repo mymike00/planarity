@@ -15,11 +15,11 @@ Rectangle {
     property var v2
 
     width: Math.sqrt((v1.x - v2.x)*(v1.x - v2.x) + (v1.y - v2.y)*(v1.y - v2.y))
-    height: units.dp(2) / board.scale
+    height: units.dp(1) / board.scale
     x: v1.x
     y: v1.y - height/2
     z: 1
-    color: "#aaaaaa"
+    color: UbuntuColors.ash
     transform: Rotation {
         origin.x: 0
         origin.y: edge.height/2
@@ -52,7 +52,11 @@ Rectangle {
             when: (v1.state == "Selected" || v2.state == "Selected") && v1.state != v2.state
             PropertyChanges {
                 target: edge
-                color: "black"
+                color: UbuntuColors.blue
+            }
+            PropertyChanges {
+                target: edge
+                height: units.dp(2) / board.scale
             }
         }
     ]
@@ -61,7 +65,7 @@ Rectangle {
         Transition {
             to: ""
             ColorAnimation {
-                duration: 1000
+                duration: 700
             }
         }
     ]

@@ -76,7 +76,7 @@ Item {
         radius: size/2
         x: (vertex.size - size) / 2
         y: (vertex.size - size) / 2
-        color: "blue"
+        color: "#335280"
         border.color: "black"
         border.width: units.dp(1)
     }
@@ -87,7 +87,7 @@ Item {
             when: selected
             PropertyChanges {
                 target: rect
-                color: "white"
+                color: UbuntuColors.green
             }
         },
         State {
@@ -95,7 +95,7 @@ Item {
             when: neighborCount > 0 && !selected
             PropertyChanges {
                 target: rect
-                color: "red"
+                color: UbuntuColors.red //"#C7162B"
             }
         }
     ]
