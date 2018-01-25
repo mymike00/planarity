@@ -77,8 +77,8 @@ Item {
         x: (vertex.size - size) / 2
         y: (vertex.size - size) / 2
         color: "#335280"
-        border.color: "black"
-        border.width: units.dp(1)
+      //   border.color: "black"
+      //   border.width: units.dp(1)
     }
 
     states: [
@@ -95,18 +95,25 @@ Item {
             when: neighborCount > 0 && !selected
             PropertyChanges {
                 target: rect
-                color: UbuntuColors.red //"#C7162B"
+                color: "#F99b0F"//UbuntuColors.red //"#C7162B"
             }
         }
     ]
 
     transitions: [
-        Transition {
-            from: "Neighbor"
-            to: ""
-            ColorAnimation {
-                duration: 1000
-            }
-        }
+      Transition {
+         from: "Neighbor"
+         to: ""
+         ColorAnimation {
+             duration: 700
+         }
+      },
+      Transition {
+          from: "Selected"
+          to: ""
+          ColorAnimation {
+              duration: 1000
+          }
+      }
     ]
 }
