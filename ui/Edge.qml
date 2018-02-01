@@ -64,8 +64,9 @@ Rectangle {
     transitions: [
         Transition {
             to: ""
-            ColorAnimation {
-                duration: 700
+            ParallelAnimation {
+               ColorAnimation {duration: 700}
+               NumberAnimation {duration: 700; property: "height"}
             }
         }
     ]
