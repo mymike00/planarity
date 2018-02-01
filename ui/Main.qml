@@ -72,17 +72,19 @@ MainView {
                     to: "Completed"
                     SequentialAnimation {
                         UbuntuNumberAnimation {
+                          easing.type: Easing.OutQuint
                             target: tick
                             property: "opacity"
                             from: 0
                             to: 1
                         }
                         UbuntuNumberAnimation {
+                          easing.type: Easing.InCubic
                             target: tick
                             property: "opacity"
                             from: 1
                             to: 0
-                            duration: 2000
+                            duration: 1000
                         }
                     }
                 }
