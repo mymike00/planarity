@@ -10,6 +10,7 @@ import Ubuntu.Components 1.3
 
 Rectangle {
     id: edge
+    antialiasing: true
 
     property var v1
     property var v2
