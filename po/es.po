@@ -1,0 +1,86 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: planarity.rschroll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-15 19:54+0100\n"
+"PO-Revision-Date: 2018-02-23 00:05+0100\n"
+"Last-Translator: advocatux <advocatux@airpost.net>\n"
+"Language-Team: UBports Spanish Team\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../ui/InfoText.qml:18
+msgid ""
+"Untangle the graph: Drag the vertices to get rid of crossed lines. All "
+"graphs can be completely untangled, but it may take some time!"
+msgstr ""
+"Desenrede el gráfico: arrastre los vértices hasta deshacerse de las líneas cruzadas. Todos "
+"los gráficos se pueden desenredar completamente ¡pero puede tardar un rato!"
+
+#: ../ui/InfoText.qml:21
+msgid ""
+"Vertices may be dragged individually, or you can draw a lasso around "
+"vertices to be moved together.  Two finger gestures pan and zoom the graph."
+msgstr ""
+"Los vértices se pueden arrastrar individualmente o puede dibujar un lazo alrededor "
+"de los vértices para moverlos juntos.  Con el gesto de dos dedos puede ampliar y reducir el gráfico."
+
+#: ../ui/InfoText.qml:24
+msgid ""
+"If your efforts have made things worse, use the reset button in the upper "
+"left to move things back to the start.  The shuffle button will generate a "
+"new puzzle."
+msgstr ""
+"Si con su esfuerzo ha empeorado las cosas, use el botón de reiniciar en la esquina "
+"superior izquierda para dejar todo como al principio.  El botón de barajar generará "
+"un nuevo rompecabezas."
+
+#: ../ui/InfoText.qml:28
+msgid ""
+"The difficulty of the puzzle can be adjusted with the control in the upper "
+"right.  Note that the number of vertices scales with the square of the "
+"difficulty, so things get complicated quickly!"
+msgstr ""
+"Se puede ajustar la dificultad del rompecabezas con el control en la esquina "
+"superior derecha. Tenga en cuenta que el número de vértices escala exponencialmente "
+"la dificultad, ¡así que la cosa se complica rápidamente!"
+
+#: ../ui/InfoText.qml:33
+msgid "Original Flash game by %1."
+msgstr "Juego Flash original de %1."
+
+#: ../ui/InfoText.qml:36
+msgid "Based on gPlanarity by %1."
+msgstr "Basado en gPlanarity de %1."
+
+#: ../ui/InfoText.qml:39
+msgid ""
+"This implentation &copy; 2015 by Robert Schroll and released under the GPL."
+msgstr ""
+"Esta implementación &copy; 2015 por Robert Schroll y liberada bajo la GPL."
+
+#: ../ui/InfoText.qml:40
+msgid "Now maintained &copy; 2018 by Michele Castellazzi."
+msgstr "Ahora mantenida &copy; 2018 por Michele Castellazzi."
+
+#: ../ui/Main.qml:258
+msgid "%1 intersection"
+msgid_plural "%1 intersections"
+msgstr[0] "%1 intersección"
+msgstr[1] "%1 intersecciones"
+
+#: ../ui/Main.qml:271
+msgid "Difficulty"
+msgstr "Dificultad"
+
+#: ../ui/Main.qml:392
+msgid "Play"
+msgstr "Jugar"
