@@ -1,7 +1,10 @@
 [Desktop Entry]
 Name=Planarity
 Exec=qmlscene $@ ui/Main.qml
-Icon=assets/planarityExperiment.svg
+Icon=assets/planarityDouble.svg
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
+X-Ubuntu-Splash-Image=assets/planaritySplash.svg
+X-Ubuntu-Splash-Color-Header=#f4a142
+X-Ubuntu-Splash-Color=#e92c40
