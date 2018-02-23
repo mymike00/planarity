@@ -7,7 +7,6 @@
 import QtQuick 2.4
 import QtGraphicalEffects 1.0
 import Ubuntu.Components 1.3
-import Ubuntu.Components 1.1 as UCold
 import Ubuntu.Components.Pickers 1.3
 
 import "database.js" as Database
@@ -37,10 +36,6 @@ MainView {
 
     Page {
         id: mainPage
-        header: PageHeader {
-           title: "Planarity"
-           exposed: false
-        }
 
         property int headerHeight: units.gu(8)
 
@@ -92,10 +87,65 @@ MainView {
             ]
         }
 
+        header: PageHeader {
+           id: p_header
+           title: i18n.tr("%1 intersection", "%1 intersections", board.intersections).arg(board.intersections)
+
+           trailingActionBar.actions: [
+              Action {
+                  iconName: "reload"
+                  onTriggered: board.reset()
+              },
+               Action {
+                  iconName: "info"
+                  onTriggered: infoDialog.visible = !infoDialog.visible
+              },
+              Action {
+                  id: generateAction
+                  iconName: board.intersections ? "media-playlist-shuffle" : "media-playback-start"
+                  // color: iconName="media-playback-start" ? UbuntuColors.green : UbuntuColors.silk
+                  onTriggered: board.generate(orderPicker.selectedIndex + orderPicker.min)
+              }
+           ]
+
+           extension: Picker {
+                id: orderPicker
+
+                property int min: 4
+                property int max: 15
+
+                anchors.centerIn: parent
+                height: parent.width/5
+                width: units.gu(4)
+                rotation: -90
+                live: false
+                circular: false
+
+                delegate: PickerDelegate {
+                    rotation: 90
+                    Label {
+                        text: modelData
+                        anchors.fill: parent
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+
+                onSelectedIndexChanged: Database.setSetting("difficulty", selectedIndex)
+
+                Component.onCompleted: {
+                    var stack = []
+                    for (var i=min; i<=max; i++)
+                        stack.push(i)
+                    model = stack
+                    selectedIndex = Database.getSetting("difficulty", 0)
+                }
+            }
+        }
         Rectangle {
             id: header
             anchors {
-                top: parent.top
+                top: p_header.bottom
                 left: parent.left
                 right: parent.right
             }
@@ -195,7 +245,7 @@ MainView {
                         height: parent.height
                         width: parent.width / 3
                         action: Action {
-                            id: generateAction
+                            id: generateActionOLD
                             iconName: board.intersections ? "media-playlist-shuffle" : "media-playback-start"
                             onTriggered: board.generate(orderPicker.selectedIndex + orderPicker.min)
                         }
@@ -272,12 +322,12 @@ MainView {
                 anchors {
                     top: parent.top
                     topMargin: units.gu(1)
-                    horizontalCenter: orderPickerContainer.horizontalCenter
+                    horizontalCenter: orderPickerContainerOLD.horizontalCenter
                 }
             }
 
             Item {
-                id: orderPickerContainer
+                id: orderPickerContainerOLD
                 anchors {
                     right: parent.right
                     rightMargin: units.gu(1)
@@ -288,7 +338,7 @@ MainView {
                 width: units.gu(20)
 
                 Picker {
-                    id: orderPicker
+                    id: orderPickerOLD
 
                     property int min: 4
                     property int max: 15
@@ -346,6 +396,7 @@ MainView {
         Item {
             id: boardContainer
             anchors.fill: parent
+            anchors.top: p_header.bottom
 
             Item {
                 anchors {
