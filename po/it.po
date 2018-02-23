@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: planarity.rschroll\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-02-15 16:53+0000\n"
-"PO-Revision-Date: 2018-02-15 18:18+0100\n"
+"PO-Revision-Date: 2018-02-23 23:36+0100\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: ../ui/InfoText.qml:33
 msgid "Original Flash game by %1."
-msgstr "Originariamente in gioco Flash realizzato da%1."
+msgstr "Originariamente in gioco Flash realizzato da %1."
 
 #: ../ui/InfoText.qml:36
 msgid "Based on gPlanarity by %1."
