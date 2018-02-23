@@ -11,25 +11,12 @@ import Ubuntu.Components.Pickers 1.3
 
 import "database.js" as Database
 
-/*!
-    \brief MainView with a Label and Button elements.
-*/
-
 MainView {
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
 
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "planarity.rschroll"
-
-    /*
-     This property enables the application to change orientation
-     when the device is rotated. The default is false.
-    */
-    //automaticOrientation: true
-
-    // Removes the old toolbar and enables new features of the new header.
-   //  useDeprecatedToolbar: false
 
     width: units.gu(100)
     height: units.gu(75)
@@ -108,28 +95,15 @@ MainView {
               }
            ]
 
-           extension: Picker {
+           extension: Sections {
                 id: orderPicker
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                }
 
                 property int min: 4
                 property int max: 15
-
-                anchors.centerIn: parent
-                height: parent.width/5
-                width: units.gu(4)
-                rotation: -90
-                live: false
-                circular: false
-
-                delegate: PickerDelegate {
-                    rotation: 90
-                    Label {
-                        text: modelData
-                        anchors.fill: parent
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignHCenter
-                    }
-                }
 
                 onSelectedIndexChanged: Database.setSetting("difficulty", selectedIndex)
 
@@ -142,6 +116,7 @@ MainView {
                 }
             }
         }
+
         Rectangle {
             id: header
             anchors {
@@ -170,228 +145,14 @@ MainView {
                 color: "#80ffffff"
             }
 
-            UbuntuShape {
-                id: buttonContainer
-                anchors {
-                    left: parent.left
-                    leftMargin: units.gu(1)
-                    top: parent.top
-                    topMargin: units.gu(1)
-                    bottom: parent.bottom
-                    bottomMargin: units.gu(1)
-                }
-                width: units.gu(20)
-                color: "#0A000000"  // From PickerStyle.qml
 
-                Row {
-                    id: buttonRow
-                    anchors.fill: parent
-
-                    AbstractButton {
-                        height: parent.height
-                        width: parent.width / 3
-                        action: Action {
-                            iconName: "reload"
-                            onTriggered: board.reset()
-                        }
-
-                        Icon {
-                            anchors {
-                                verticalCenter: parent.verticalCenter
-                                horizontalCenter: parent.horizontalCenter
-                            }
-                            height: parent.height/2
-                            width: height
-                            name: parent.iconName
-                            opacity: parent.enabled ? 1.0 : 0.5
-                        }
-                    }
-
-                    Rectangle {
-                        color: UbuntuColors.warmGrey
-                        height: parent.height
-                        width: units.dp(1)
-                    }
-
-                    AbstractButton {
-                        id: infoButton
-                        height: parent.height
-                        width: parent.width / 3 - units.dp(2)
-                        action: Action {
-                            iconName: "info"
-                            onTriggered: infoDialog.visible = !infoDialog.visible
-                        }
-
-                        Icon {
-                            id: infoIcon
-                            anchors {
-                                verticalCenter: parent.verticalCenter
-                                horizontalCenter: parent.horizontalCenter
-                            }
-                            height: parent.height/2
-                            width: height
-                            name: parent.iconName
-                            opacity: parent.enabled ? 1.0 : 0.5
-                        }
-                    }
-
-                    Rectangle {
-                        color: UbuntuColors.warmGrey
-                        height: parent.height
-                        width: units.dp(1)
-                    }
-
-                    AbstractButton {
-                        height: parent.height
-                        width: parent.width / 3
-                        action: Action {
-                            id: generateActionOLD
-                            iconName: board.intersections ? "media-playlist-shuffle" : "media-playback-start"
-                            onTriggered: board.generate(orderPicker.selectedIndex + orderPicker.min)
-                        }
-                        clip: true
-
-                        Icon {
-                            id: icon1
-                            anchors {
-                                horizontalCenter: parent.horizontalCenter
-                            }
-                            y: parent.height / 4
-                            height: parent.height / 2
-                            width: height
-                            name: "media-playlist-shuffle"
-                        }
-
-                        Icon {
-                            id: icon2
-                            anchors {
-                                horizontalCenter: parent.horizontalCenter
-                            }
-                            y: parent.height
-                            height: parent.height/2
-                            width: height
-                            name: "media-playback-start"
-                            color: UbuntuColors.green
-                        }
-
-                        states: [
-                            State {
-                                when: board.intersections == 0
-                                PropertyChanges {
-                                    target: icon1
-                                    y: -parent.height / 2
-                                }
-                                PropertyChanges {
-                                    target: icon2
-                                    y: parent.height / 4
-                                }
-                            }
-                        ]
-                        transitions: [
-                            Transition {
-                                UbuntuNumberAnimation {
-                                    target: icon1
-                                    properties: "y"
-                                }
-                                UbuntuNumberAnimation {
-                                    target: icon2
-                                    properties: "y"
-                                }
-                            }
-                        ]
-                    }
-                }
-            }
-
-            Label {
-                id: intersectionsLabel
-                text: i18n.tr("%1 intersection", "%1 intersections", board.intersections).arg(board.intersections)
-                anchors {
-                    horizontalCenter: parent.horizontalCenter
-                    verticalCenter: parent.verticalCenter
-                    topMargin: units.gu(1)
-                    leftMargin: units.gu(1)
-                }
-                font.bold: true
-                color: board.intersections ? Theme.palette.selected.backgroundText : UbuntuColors.green
-            }
 
             Label {
                 id: difficultyLabel
-                text: i18n.tr("Difficulty")
-                anchors {
-                    top: parent.top
-                    topMargin: units.gu(1)
-                    horizontalCenter: orderPickerContainerOLD.horizontalCenter
-                }
+                text: i18n.tr(" ")
             }
 
-            Item {
-                id: orderPickerContainerOLD
-                anchors {
-                    right: parent.right
-                    rightMargin: units.gu(1)
-                    top: difficultyLabel.bottom
-                    bottom: parent.bottom
-                    bottomMargin: units.gu(1)
-                }
-                width: units.gu(20)
-
-                Picker {
-                    id: orderPickerOLD
-
-                    property int min: 4
-                    property int max: 15
-
-                    anchors.centerIn: parent
-                    height: parent.width
-                    width: parent.height
-                    rotation: -90
-                    live: false
-                    circular: false
-
-                    delegate: PickerDelegate {
-                        rotation: 90
-                        Label {
-                            text: modelData
-                            anchors.fill: parent
-                            verticalAlignment: Text.AlignVCenter
-                            horizontalAlignment: Text.AlignHCenter
-                        }
-                    }
-
-                    onSelectedIndexChanged: Database.setSetting("difficulty", selectedIndex)
-
-                    Component.onCompleted: {
-                        var stack = []
-                        for (var i=min; i<=max; i++)
-                            stack.push(i)
-                        model = stack
-                        selectedIndex = Database.getSetting("difficulty", 0)
-                    }
-                }
-            }
-
-            states: [
-                State {
-                    when: width < units.gu(60)
-                    AnchorChanges {
-                        target: intersectionsLabel
-                        anchors.top: parent.top
-                        anchors.horizontalCenter: buttonContainer.horizontalCenter
-                        anchors.verticalCenter: undefined
-                    }
-                    AnchorChanges {
-                        target: buttonContainer
-                        anchors.top: intersectionsLabel.bottom
-                    }
-                    PropertyChanges {
-                        target: buttonContainer
-                        anchors.topMargin: 0
-                    }
-                }
-            ]
-        }
+         }
 
         Item {
             id: boardContainer
@@ -431,19 +192,19 @@ MainView {
                 }
             }
 
-            Button {
-                anchors {
-                    top: infoFlickable.bottom
-                    topMargin: units.gu(1)
-                    horizontalCenter: parent.horizontalCenter
-                }
-                width: units.gu(20)
-                height: mainPage.headerHeight - units.gu(2)
-                color: "#40d9d9d9"    // To match header button over white, but be dark enough to
-                text: i18n.tr("Play") // force the Button to use dark text.
+         Button {
+             anchors {
+                 top: infoFlickable.bottom
+                 topMargin: units.gu(1)
+                 horizontalCenter: parent.horizontalCenter
+             }
+             width: units.gu(20)
+             height: mainPage.headerHeight - units.gu(2)
+             color: "#40d9d9d9"    // To match header button over white, but be dark enough to
+             text: i18n.tr("Play") // force the Button to use dark text.
 
-                onClicked: infoDialog.visible = false
-            }
+             onClicked: infoDialog.visible = false
+         }
 
             onVisibleChanged: Database.setSetting("showInfo", visible)
         }
