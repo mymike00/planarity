@@ -26,7 +26,7 @@ MainView {
 
         property int headerHeight: units.gu(8)
 
-        Rectangle {
+        Rectangle { //useful?!?
             id: background
             anchors.fill: parent
             color: "white"
@@ -41,6 +41,7 @@ MainView {
             color: UbuntuColors.green
             opacity: 0
             visible: opacity > 0
+            z:4
 
             states: [
                 State {
@@ -77,7 +78,8 @@ MainView {
         header: PageHeader {
            id: p_header
            title: i18n.tr("%1 intersection", "%1 intersections", board.intersections).arg(board.intersections)
-
+           z:4
+           
            trailingActionBar.actions: [
               Action {
                   iconName: "reload"
@@ -119,50 +121,40 @@ MainView {
 
         Rectangle {
             id: header
-            anchors {
-                top: p_header.bottom
-                left: parent.left
-                right: parent.right
-            }
-            height: mainPage.headerHeight
+            anchors.fill: parent
+            anchors.topMargin: p_header.bottom
             color: "white"
-            clip: true
             z: 2
-
             FastBlur {
-                id: blur
-                source: boardContainer
-                x: 0
-                y: 0
-                width: boardContainer.width
-                height: boardContainer.height
-                radius: 40
-                visible: false
+               id: blur
+               source: boardContainer
+               x: 0
+               y: 0
+               width: boardContainer.width
+               height: boardContainer.height
+               radius: 0
+               visible: false
             }
             ColorOverlay {
-                anchors.fill: blur
-                source: blur
-                color: "#80ffffff"
+               id: overlay
+               anchors.fill: blur
+               source: blur
+               color: "#00ffffff"
             }
 
 
-
-            Label {
-                id: difficultyLabel
-                text: i18n.tr(" ")
-            }
+            Label {text: " "}
 
          }
 
         Item {
             id: boardContainer
             anchors.fill: parent
-            anchors.top: p_header.bottom
+            anchors.topMargin: p_header.bottom
 
             Item {
                 anchors {
                     fill: parent
-                    topMargin: mainPage.headerHeight
                 }
                 z: 1
 
@@ -176,6 +168,7 @@ MainView {
             id: infoDialog
             visible: false
             anchors.fill: parent
+            anchors.topMargin: p_header.bottom
             height: units.gu(100)
             z: 3
 
@@ -199,7 +192,7 @@ MainView {
                  horizontalCenter: parent.horizontalCenter
              }
              width: units.gu(20)
-             height: mainPage.headerHeight - units.gu(2)
+             height: units.gu(6)
              color: "#40d9d9d9"    // To match header button over white, but be dark enough to
              text: i18n.tr("Play") // force the Button to use dark text.
 
@@ -213,16 +206,16 @@ MainView {
             State {
                 when: infoDialog.visible
                 PropertyChanges {
-                    target: header
-                    clip: false
+                    target: blur
+                    radius: 40
+                }
+                PropertyChanges {
+                   target: overlay
+                   color: "#80ffffff"
                 }
                 PropertyChanges {
                     target: boardContainer
                     visible: false
-                }
-                PropertyChanges {
-                    target: infoIcon
-                    color: UbuntuColors.orange
                 }
             }
         ]
