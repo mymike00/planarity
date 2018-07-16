@@ -66,8 +66,8 @@ Rectangle {
         Transition {
             to: ""
             ParallelAnimation {
-               ColorAnimation {duration: 700;easing.type: Easing.InCubic}
-               NumberAnimation {duration: 700; property: "height";easing.type: Easing.InCubic}
+               ColorAnimation {duration: 700; easing.type: Easing.InCubic}
+               NumberAnimation {duration: 700; property: "height"; easing.type: Easing.InCubic}
             }
         }
     ]

@@ -21,6 +21,9 @@ MainView {
     width: units.gu(100)
     height: units.gu(75)
 
+    PageStack {
+      id: mainStack
+   }
     Page {
         id: mainPage
 
@@ -79,7 +82,7 @@ MainView {
            id: p_header
            title: i18n.tr("%1 intersection", "%1 intersections", board.intersections).arg(board.intersections)
            z:4
-           
+
            trailingActionBar.actions: [
               Action {
                   iconName: "reload"
@@ -87,7 +90,10 @@ MainView {
               },
                Action {
                   iconName: "info"
-                  onTriggered: infoDialog.visible = !infoDialog.visible
+                  onTriggered: {
+                     mainStack.push(Qt.resolvedUrl("InfoText.qml"))//infoDialog.visible = !infoDialog.visible
+                     Database.setSetting("showInfo", true)
+                  }
               },
               Action {
                   id: generateAction
@@ -119,34 +125,6 @@ MainView {
             }
         }
 
-        Rectangle {
-            id: header
-            anchors.fill: parent
-            anchors.topMargin: p_header.bottom
-            color: "white"
-            z: 2
-            FastBlur {
-               id: blur
-               source: boardContainer
-               x: 0
-               y: 0
-               width: boardContainer.width
-               height: boardContainer.height
-               radius: 0
-               visible: false
-            }
-            ColorOverlay {
-               id: overlay
-               anchors.fill: blur
-               source: blur
-               color: "#00ffffff"
-            }
-
-
-            Label {text: " "}
-
-         }
-
         Item {
             id: boardContainer
             anchors.fill: parent
@@ -162,44 +140,6 @@ MainView {
                     id: board
                 }
             }
-        }
-
-        Item {
-            id: infoDialog
-            visible: false
-            anchors.fill: parent
-            anchors.topMargin: p_header.bottom
-            height: units.gu(100)
-            z: 3
-
-            Flickable {
-                id: infoFlickable
-                anchors.centerIn: parent
-                width: Math.min(parent.width - units.gu(2), units.gu(60))
-                height: Math.min(parent.height - 2 * mainPage.headerHeight, infoText.paintedHeight)
-                contentHeight: infoText.paintedHeight
-                clip: true
-
-                InfoText {
-                    id: infoText
-                }
-            }
-
-         Button {
-             anchors {
-                 top: infoFlickable.bottom
-                 topMargin: units.gu(1)
-                 horizontalCenter: parent.horizontalCenter
-             }
-             width: units.gu(20)
-             height: units.gu(6)
-             color: "#40d9d9d9"    // To match header button over white, but be dark enough to
-             text: i18n.tr("Play") // force the Button to use dark text.
-
-             onClicked: infoDialog.visible = false
-         }
-
-            onVisibleChanged: Database.setSetting("showInfo", visible)
         }
 
         states: [
@@ -221,7 +161,9 @@ MainView {
         ]
 
         Component.onCompleted: {
-            infoDialog.visible = (Database.getSetting("showInfo", true) != 0)
+           mainStack.push(mainPage)
+            // if (Database.getSetting("showInfo", true) != 0)
+            //    mainStack.pudh(Qt.resolvedUrl("InfoText.qml"))
             Database.loadGraph(board.createGraph, generateAction.trigger)
         }
     }
