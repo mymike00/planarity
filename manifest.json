@@ -1,7 +1,7 @@
 {
     "name": "planarity.rschroll",
     "description": "Rearrange the vertices so that no two edges intersect",
-    "architecture": "armhf",
+    "architecture": "@CLICK_ARCH@",
     "title": "Planarity",
     "hooks": {
         "planarity": {
@@ -11,5 +11,5 @@
     },
     "version": "0.2.2",
     "maintainer": "Michele Castellazzi <miguel2000@livecom.it>",
-    "framework" : "ubuntu-sdk-15.04"
+    "framework" : "@CLICK_FRAMEWORK@"
 }
