@@ -1,4 +1,4 @@
 {
-	"template": "pure-qml-cmake",
+	"clickable_minimum_required": 8,
 	"default": "kill clean build click_build install launch logs"
 }
