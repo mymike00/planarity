@@ -1,4 +1,4 @@
 {
-	"clickable_minimum_required": 8,
+	"clickable_minimum_required": "8.4",
 	"default": "kill clean build click_build install launch logs"
 }

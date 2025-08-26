@@ -1,7 +1,7 @@
 {
     "name": "planarity.rschroll",
     "description": "Rearrange the vertices so that no two edges intersect",
-    "architecture": "@CLICK_ARCH@",
+    "architecture": "all",
     "title": "Planarity",
     "hooks": {
         "planarity": {
@@ -9,7 +9,7 @@
             "desktop":  "planarity.desktop"
         }
     },
-    "version": "0.2.2",
+    "version": "0.2.3",
     "maintainer": "Michele Castellazzi <miguel2000@livecom.it>",
     "framework" : "@CLICK_FRAMEWORK@"
 }
