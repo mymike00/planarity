@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 
 
 Rectangle {
@@ -20,7 +20,7 @@ Rectangle {
     x: v1.x
     y: v1.y - height/2
     z: 1
-    color: UbuntuColors.ash
+    color: LomiriColors.ash
     transform: Rotation {
         origin.x: 0
         origin.y: edge.height/2
@@ -53,7 +53,7 @@ Rectangle {
             when: (v1.state == "Selected" || v2.state == "Selected") && v1.state != v2.state
             PropertyChanges {
                 target: edge
-                color: UbuntuColors.blue
+                color: LomiriColors.blue
             }
             PropertyChanges {
                 target: edge

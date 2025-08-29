@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.4
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 
 import "database.js" as Database
 
@@ -87,7 +87,7 @@ Item {
             when: selected
             PropertyChanges {
                 target: rect
-                color: UbuntuColors.green
+                color: LomiriColors.green
             }
         },
         State {
@@ -95,7 +95,7 @@ Item {
             when: neighborCount > 0 && !selected
             PropertyChanges {
                 target: rect
-                color: "#F99b0F"//UbuntuColors.red //"#C7162B"
+                color: "#F99b0F"//LomiriColors.red //"#C7162B"
             }
         }
     ]

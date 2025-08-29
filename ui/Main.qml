@@ -6,9 +6,9 @@
 
 import QtQuick 2.4
 import QtGraphicalEffects 1.0
-import Ubuntu.Components 1.3
-import Ubuntu.Components 1.1 as UCold
-import Ubuntu.Components.Pickers 1.3
+import Lomiri.Components 1.3
+import Lomiri.Components 1.1 as UCold
+import Lomiri.Components.Pickers 1.3
 
 import "database.js" as Database
 
@@ -56,7 +56,7 @@ MainView {
             width: Math.min(parent.width, parent.height)
             height: width
             name: "tick"
-            color: UbuntuColors.green
+            color: LomiriColors.green
             opacity: 0
             visible: opacity > 0
 
@@ -71,14 +71,14 @@ MainView {
                     from: ""
                     to: "Completed"
                     SequentialAnimation {
-                        UbuntuNumberAnimation {
+                        LomiriNumberAnimation {
                           easing.type: Easing.OutQuint
                             target: tick
                             property: "opacity"
                             from: 0
                             to: 1
                         }
-                        UbuntuNumberAnimation {
+                        LomiriNumberAnimation {
                           easing.type: Easing.InCubic
                             target: tick
                             property: "opacity"
@@ -120,7 +120,7 @@ MainView {
                 color: "#80ffffff"
             }
 
-            UbuntuShape {
+            LomiriShape {
                 id: buttonContainer
                 anchors {
                     left: parent.left
@@ -158,7 +158,7 @@ MainView {
                     }
 
                     Rectangle {
-                        color: UbuntuColors.warmGrey
+                        color: LomiriColors.warmGrey
                         height: parent.height
                         width: units.dp(1)
                     }
@@ -186,7 +186,7 @@ MainView {
                     }
 
                     Rectangle {
-                        color: UbuntuColors.warmGrey
+                        color: LomiriColors.warmGrey
                         height: parent.height
                         width: units.dp(1)
                     }
@@ -221,7 +221,7 @@ MainView {
                             height: parent.height/2
                             width: height
                             name: "media-playback-start"
-                            color: UbuntuColors.green
+                            color: LomiriColors.green
                         }
 
                         states: [
@@ -239,11 +239,11 @@ MainView {
                         ]
                         transitions: [
                             Transition {
-                                UbuntuNumberAnimation {
+                                LomiriNumberAnimation {
                                     target: icon1
                                     properties: "y"
                                 }
-                                UbuntuNumberAnimation {
+                                LomiriNumberAnimation {
                                     target: icon2
                                     properties: "y"
                                 }
@@ -263,7 +263,7 @@ MainView {
                     leftMargin: units.gu(1)
                 }
                 font.bold: true
-                color: board.intersections ? Theme.palette.selected.backgroundText : UbuntuColors.green
+                color: board.intersections ? Theme.palette.selected.backgroundText : LomiriColors.green
             }
 
             Label {
@@ -410,7 +410,7 @@ MainView {
                 }
                 PropertyChanges {
                     target: infoIcon
-                    color: UbuntuColors.orange
+                    color: LomiriColors.orange
                 }
             }
         ]
