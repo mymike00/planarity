@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the planarity.rschroll package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: planarity.rschroll\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-15 16:56+0000\n"
+"PO-Revision-Date: 2025-08-31 11:02+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+
+#: ../ui/InfoText.qml:18
+msgid ""
+"Untangle the graph: Drag the vertices to get rid of crossed lines. All "
+"graphs can be completely untangled, but it may take some time!"
+msgstr ""
+"Ontwar de grafiek: sleep de knooppunten om de gekruiste lijnen weg te "
+"halen. Alle grafieken kunnen volledig worden ontward, maar het kan even "
+"duren!"
+
+#: ../ui/InfoText.qml:21
+msgid ""
+"Vertices may be dragged individually, or you can draw a lasso around "
+"vertices to be moved together.  Two finger gestures pan and zoom the graph."
+msgstr ""
+"Knooppunten kunnen individueel worden verplaatst of samengevoegd worden "
+"door er een lasso rond te tekenen.  Verschuif het beeld en zoom met behulp "
+"van twee vingers."
+
+#: ../ui/InfoText.qml:24
+msgid ""
+"If your efforts have made things worse, use the reset button in the upper "
+"left to move things back to the start.  The shuffle button will generate a "
+"new puzzle."
+msgstr ""
+"Als je alles verkeerd hebt gedaan, druk dan op de knop linksboven om "
+"opnieuw te beginnen.  Druk op de knop ‘Willekeurig’ om een nieuwe puzzel "
+"te starten."
+
+#: ../ui/InfoText.qml:28
+msgid ""
+"The difficulty of the puzzle can be adjusted with the control in the upper "
+"right.  Note that the number of vertices scales with the square of the "
+"difficulty, so things get complicated quickly!"
+msgstr ""
+"De moeilijkheidsgraad kan worden aangepast met behulp van de bediening "
+"rechtsboven.  Let op: het aantal knooppunten neemt toe naarmate het "
+"moeilijker wordt, dus denk goed na over welke graad je kiest!"
+
+#: ../ui/InfoText.qml:33
+msgid "Original Flash game by %1."
+msgstr "Oorspronkelijke Flash-game gemaakt door %1."
+
+#: ../ui/InfoText.qml:36
+msgid "Based on gPlanarity by %1."
+msgstr "Gebaseerd op gPlanarity van %1."
+
+#: ../ui/InfoText.qml:39
+msgid ""
+"This implentation &copy; 2015 by Robert Schroll and released under the GPL."
+msgstr ""
+"Deze implementatie: &copy; 2015 van Robert Schroll en uitgebracht onder de "
+"GPL-licentie."
+
+#: ../ui/InfoText.qml:40
+msgid "Now maintained &copy; 2018 by Michele Castellazzi."
+msgstr "Huidige versie: &copy; 2018 van Michele Castellazzi."
+
+#: ../ui/Main.qml:258
+msgid "%1 intersection"
+msgid_plural "%1 intersections"
+msgstr[0] "%1 knooppunt"
+msgstr[1] "%1 knooppunten"
+
+#: ../ui/Main.qml:271
+msgid "Difficulty"
+msgstr "Moeilijkheidsgraad"
+
+#: ../ui/Main.qml:392
+msgid "Play"
+msgstr "Spelen"
